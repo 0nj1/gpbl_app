@@ -9,28 +9,28 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "master_data")
-public class MasterData {
+@Table(name = "status")
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotNull
+    private Integer key;
+
     @Length(max = 256)
     private String name;
 
     @NotNull
-    private Integer value;
+    private Integer sourceId;
 
     @NotNull
-    @Length(max = 256)
-    private String masterDataKey;
+    private Integer relatedId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Status status;
+    @NotNull
+    private Integer integratedStatusId;
 
     private Timestamp createdAt;
 
     private Timestamp updatedAt;
-
 }

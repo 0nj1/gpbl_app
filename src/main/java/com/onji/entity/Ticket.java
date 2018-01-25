@@ -2,51 +2,48 @@ package com.onji.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 
 @Data
 @Entity
 @Table(name = "tickets")
 public class Ticket {
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "integrated_ticket_id")
-	private Integer integrated_ticket_id;
+    @NotNull
+	private Integer integratedTicketId;
 
-    @Column(name = "integrated_parent_id")
-	private Integer integrated_parent_id;
+    @NotNull
+	private Integer integratedParentId;
 
-    @Column(name = "source_id")
-	private Integer source_id;
+    @NotNull
+	private Integer sourceId;
 
-    @Column(name = "ticket_type_id")
-	private Integer ticket_type_id;
+    //TODO: add ticket type
 
-    @Column(name = "status_id")
-	private Integer status_id;
+    //TODO: add status
 
-    @Column(name = "title")
+    @NotNull
 	private String title;
 
-    @Column(name = "bug_weight_id")
-    private Integer bug_weight_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id")
+    private Project project;
 
-    @Column(name = "root_cause_id")
-    private Integer root_cause_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bug_weight_id")
+    private BugsWeight bugsWeight;
 
-    @Column(name = "priority_id")
-    private Integer priority_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "priority_id")
+    private Priority priority;
 
-    @Column(name = "bug_type_id")
-    private Integer bug_type_id;
-
-
-
-
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bug_type_id")
+    private BugsType bugsType;
+    
 }
