@@ -1,6 +1,7 @@
 package com.onji.entity;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -8,25 +9,27 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "bugs_weight")
-public class BugsWeight {
+@Table(name = "master_data")
+public class MasterData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotNull
-    private Integer key;
-
-    @NotNull
+    @Length(max = 256)
     private String name;
 
     @NotNull
-    private Integer sourceId;
+    private Integer value;
 
     @NotNull
-    private Integer relatedId;
-    
+    @Length(max = 256)
+    private String masterDataKey;
+
+    //TODO: add status
+
     private Timestamp createdAt;
 
     private Timestamp updatedAt;
+
 }

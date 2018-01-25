@@ -3,25 +3,27 @@ package com.onji.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "activities")
-public class Activity {
+@Table(name = "categories")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String name;
+    @NotNull
+    private String value;
 
-    private Integer sourceId;
+    @NotNull
+    private Integer status;
 
-    private Integer relatedId;
+    @NotNull
+    private Integer userId;
 
     private Timestamp createdAt;
 
     private Timestamp updatedAt;
-
-    private Timestamp deletedAt;
 }
