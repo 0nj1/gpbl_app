@@ -1,126 +1,122 @@
 <!-- home.html -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <!-- Custom Style -->
 
     <!-- jQuery -->
-    <script
-    src="https://code.jquery.com/jquery-2.2.4.min.js"
-    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
-  <!-- Header -->
-    <div class="container-fluid">
-        <div class="header">
-            <div class="header_name col-sm-4">
-              <h2>The final statistic of Web Application</h2>
-              <p>Support PM choose members for new project</p>
-            </div>
-            <div class="header_img col-sm-3">
-              <img src="imgs/sit_logo.png" alt="SIT LOGO">
-            </div>
-            <div class="header_img col-sm-3">
-              <img src="imgs/ptit_logo.jpg" alt="">
-            </div>
+<!-- Header -->
+<div class="container-fluid">
+    <div class="header">
+        <div class="header_name col-sm-4">
+            <h2>The final statistic of Web Application!</h2>
+            <p>Support PM choose members for new project</p>
         </div>
-        <div class="contaier header_input">
-            <h3>Choose some member's information</h3>
-            <form action="" method="post">
-              <div class="header_input col-sm-4">
+        <div class="header_img col-sm-3">
+            <img src="imgs/sit_logo.png" alt="SIT LOGO" />
+        </div>
+        <div class="header_img col-sm-3">
+            <img src="imgs/ptit_logo.jpg" alt="" />
+        </div>
+    </div>
+    <div class="contaier header_input">
+        <h3>Choose some member's information</h3>
+        <form action="" method="post">
+            <div class="header_input col-sm-4">
                 <div class="header_label">
-                  ROLE
+                    ROLE
                 </div>
                 <div class="header_content">
-                  <select name="Role" id="">
-                      <option value="">Admin</option>
-                      <option value="">Coder</option>
-                      <option value="">QA</option>
-                      <option value="">Tester</option>
-                  </select>
+                    <select name="Role" id="1">
+                        <option value="">Admin</option>
+                        <option value="">Coder</option>
+                        <option value="">QA</option>
+                        <option value="">Tester</option>
+                    </select>
                 </div>
-              </div>
-	           <div class="header_input col-sm-4">
-               <div class="header_label">
-       				       LOCATION
-       			  </div>
-       			  <div class="header_content">
-           			  <select name="Location" id="">
-                       <option value="">Japan</option>
-                       <option value="">Viet Nam</option>
-                       <option value="">USA</option>
-                       <option value="">Korea</option>
-                 </select>
-       			  </div>
-     			  </div>
+            </div>
+            <div class="header_input col-sm-4">
+                <div class="header_label">
+                    LOCATION
+                </div>
+                <div class="header_content">
+                    <select name="Location" id="">
+                        <option value="">Japan</option>
+                        <option value="">Viet Nam</option>
+                        <option value="">USA</option>
+                        <option value="">Korea</option>
+                    </select>
+                </div>
+            </div>
 
             <div class="header_input col-sm-4">
-              <input type="submit" value="Search" class="btn btn-danger">
+                <input type="submit" value="Search" class="btn btn-danger" />
             </div>
-         </div>
         </form>
-        </div>
-        <br/>
-        <hr>
     </div>
+</div>
 <!-- Main Content -->
-    <div class="container">
-      <div class="contaier">
-          <table class="table">
-               <tr>
-                   <td>Role</td>
-                   <td>Admin</td>
-               </tr>
-               <tr>
-                   <td>Name</td>
-                   <td>Tran Manh Toan</td>
-               </tr>
-               <tr>
-                   <td>Age</td>
-                   <td>22</td>
-               </tr>
-               <tr>
-                   <td>Total time work</td>
-                   <td>1000 hour</td>
-               </tr>
-               <tr>
-                   <td>Quantity of project</td>
-                   <td>1</td>
-               </tr>
-               <tr>
-                   <td>List of project</td>
-                   <td>
-                       <table class="ListProject" style="border-style: none;">
-                           <tr>
-                               <td>index</td>
-                               <td>name of project</td>
-                               <td>total time</td>
-                               <td>start time</td>
-                               <td>end time</td>
-                               <td>rating</td>
-                           </tr>
-                           <tr>
-                               <td>1</td>
-                               <td>gPBL</td>
-                               <td>100 hour</td>
-                               <td>10-1-2018</td>
-                               <td>15-1-2018</td>
-                               <td>good</td>
-                           </tr>
-                       </table>
-                   </td>
-               </tr>
-          </table>
-      </div>
+<div class="container">
+    <div class="contaier">
+        <table class="table">
+            <tr>
+                <td>Role</td>
+                <td>Admin</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>Tran Manh Toan</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Total time work</td>
+                <td>1000 hour</td>
+            </tr>
+            <tr>
+                <td>Quantity of project</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>List of project</td>
+                <td>
+                    <table class="ListProject" style="border-style: none;">
+                        <tr>
+                            <td>index</td>
+                            <td>name of project</td>
+                            <td>total time</td>
+                            <td>start time</td>
+                            <td>end time</td>
+                            <td>rating</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>gPBL</td>
+                            <td>100 hour</td>
+                            <td>10-1-2018</td>
+                            <td>15-1-2018</td>
+                            <td>good</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
+</div>
 </body>
 </html>
