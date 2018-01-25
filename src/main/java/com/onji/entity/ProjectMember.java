@@ -29,10 +29,11 @@ public class ProjectMember {
     private Integer status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "")
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     private Timestamp createdAt;
 
-    private Timestamp updateAt;
+    private Timestamp updatedAt;
 
 }
