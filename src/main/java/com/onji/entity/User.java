@@ -1,12 +1,11 @@
 package com.onji.entity;
 
-import lombok.Getter;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
-@Getter
+@Data
 @Entity
 @Table(name = "users")
 public class User {
