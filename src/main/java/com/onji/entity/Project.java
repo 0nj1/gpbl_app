@@ -29,7 +29,9 @@ public class Project {
     @Length(max = 256)
     private String name;
 
-    // TODO: Add department
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     private Timestamp actualStartDate;
 
