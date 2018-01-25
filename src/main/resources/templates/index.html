@@ -44,7 +44,7 @@
     </div>
 
     <!-- Main -->
-    <div class="main col-sm-7">
+    <div class="main col-sm-6">
         <!-- Input -->
         <div class="main_input panel panel-primary">
             <div class="panel-heading">
@@ -153,6 +153,74 @@
             </table>
           </div>
         </div>
+    </div>
+
+    <!-- SCRIPT TO DRAW GRAPHIC DIAGRAM -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      	<script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+
+          google.charts.setOnLoadCallback(drawChart3);
+          google.charts.setOnLoadCallback(drawChart4);
+
+
+
+          function drawChart3() {
+    	      var data3 = google.visualization.arrayToDataTable([
+    	        ["nhân viên", "số dự án hoàn thành", { role: "style" } ],
+    	        ["Employee A", 10, "#b87333"],
+    	        ["Employee B", 11, "silver"],
+    	        ["Employee C", 12, "gold"],
+    	        ["Employee D", 11, "color: #e5e4e2"]
+    	      ]);
+
+    	      var view = new google.visualization.DataView(data3);
+    	      view.setColumns([0, 1,
+    	                       { calc: "stringify",
+    	                         sourceColumn: 1,
+    	                         type: "string",
+    	                         role: "annotation" },
+    	                       2]);
+
+    	      var options = {
+    	        title: "Overview about quantity project of employees",
+    	        bar: {groupWidth: "20%"},
+    	        legend: { position: "none" },
+    	      };
+    	      var chart = new google.visualization.ColumnChart(document.getElementById("QuantityOfProject"));
+    	      chart.draw(view, options);
+      		}
+
+      		function drawChart4() {
+    	      var data3 = google.visualization.arrayToDataTable([
+    	        ["nhân viên", "số buổi nghỉ", { role: "style" } ],
+    	        ['<a href="">"em B"</a>', 100, "#b87333"],
+    	        ["Employee B", 110, "silver"],
+    	        ["Employee C", 80, 	"gold"],
+    	        ["Employee D", 110, "color: #e5e4e2"]
+    	      ]);
+
+    	      var view = new google.visualization.DataView(data3);
+    	      view.setColumns([0, 1,
+    	                       { calc: "stringify",
+    	                         sourceColumn: 1,
+    	                         type: "string",
+    	                         role: "annotation" },
+    	                       2]);
+
+    	      var options = {
+    	        title: "The quantity ",
+    	        bar: {groupWidth: "20%"},
+    	        legend: { position: "none" },
+    	      };
+    	      var chart = new google.visualization.ColumnChart(document.getElementById("TotalTime"));
+    	      chart.draw(view, options);
+      		}
+
+        </script>
+    <div class="graphic-diagram col-sm-6">
+	    <div id="QuantityOfProject"></div>
+	    <div id="TotalTime"></div>
     </div>
 </div>
 </body>
