@@ -25,7 +25,8 @@ public class Department {
     @NotNull
     private Integer managerId;
 
-    // TODO: add status
+    @NotNull
+    private Integer status;
 
     @NotNull
     private String description;

@@ -23,7 +23,9 @@ public class Ticket {
     @NotNull
 	private Integer sourceId;
 
-    //TODO: add ticket type
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ticket_type_id")
+    private TicketType ticketType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "status_id")
