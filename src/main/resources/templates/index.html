@@ -1,10 +1,231 @@
+<!-- home.html -->
+
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://wwww.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <!-- Custom Style -->
+
+    <!-- jQuery -->
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <title>Document</title>
 </head>
 <body>
-<h1 th:text="${sample}"></h1>
+<div class="container-fluid">
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header_name col-sm-4">
+            <h2>The Final Project</h2>
+            <p>Support PM choose members for new project</p>
+        </div>
+        <div class="header_gpbl col-sm-4">
+            <h2 style="color:#ff6e6e;">2018 Global PBL Scholarship</h2>
+<<<<<<< HEAD
+            <p style="padding-top: 40px;font-size:20px">
+=======
+            <p style="padding-top: 10px;font-size:20px">
+>>>>>>> b212edae3915acc977231d76b1ad715bb2c7427c
+                <b>Shibaura Institute of Technology</b>
+            </p>
+            <p style="font-weight:thin; font-size:18px;">
+                Tokyo, January 2018
+            </p>
+        </div>
+        <div class="header_img col-sm-2">
+            <img class="img-rounded" src="imgs/sit_logo.png" alt="SIT LOGO"/>
+        </div>
+        <div class="header_img col-sm-2">
+            <img class="img-rounded" src="imgs/ptit_logo.jpg" alt=""/>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main col-sm-6">
+        <!-- Input -->
+        <div class="main_input panel panel-primary">
+            <div class="panel-heading">
+              <h4>
+                  Choose the member's informations
+              </h4>
+            </div>
+            <div class="panel-body">
+              <div class="main_input_slected form-inline">
+                  <span class="col-sm-2">Role</span>
+                  <select class="form-control" name="Role" id="">
+                      <option value="">Admin</option>
+                      <option value="">Coder</option>
+                      <option value="">QA</option>
+                      <option value="">Tester</option>
+                  </select>
+              </div>
+              <!-- Input Location -->
+              <div class="main_input_slected form-inline">
+                  <span class="col-sm-2">Location</span>
+                  <select name="Location" id="" class="form-control">
+                      <option value="">Japan</option>
+                      <option value="">Viet Nam</option>
+                      <option value="">USA</option>
+                      <option value="">Korea</option>
+                  </select>
+              </div>
+              <!-- Input Role -->
+              <form>
+                  <div class="main_input_submit">
+                      <input type="submit" value="Search" class="btn btn-danger"/>
+                  </div>
+              </form>
+            </div>
+        </div>
+        <!-- Main Result -->
+        <div class="main_result panel panel-primary">
+          <div class="panel-heading">
+            <h4  style="">The result</h4>
+          </div>
+          <div class="panel-body">
+            <table class="table table-striped" id="table-boderd">
+                <tr>
+                    <td id="tb_label">Role</td>
+                    <td>Admin</td>
+                </tr>
+                <tr>
+                    <td id="tb_label">Name</td>
+                    <td>Tran Manh Toan</td>
+                </tr>
+                <tr>
+                    <td id="tb_label">Age</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td id="tb_label">Total time work</td>
+                    <td>1000 hour</td>
+                </tr>
+                <tr>
+                    <td id="tb_label">Quantity of project</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td id="tb_lable_01">
+                      List of project
+                    </td>
+                    <td>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                  <th>Index</th>
+                                  <th>Name</th>
+                                  <th>Total time</th>
+                                  <th>Start time</th>
+                                  <th>End time</th>
+                                  <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>1</td>
+                                <td>gPBL</td>
+                                <td>100 hour</td>
+                                <td>10-1-2018</td>
+                                <td>15-1-2018</td>
+                                <td>good</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>gPBL</td>
+                                <td>100 hour</td>
+                                <td>10-1-2018</td>
+                                <td>15-1-2018</td>
+                                <td>good</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>gPBL</td>
+                                <td>100 hour</td>
+                                <td>10-1-2018</td>
+                                <td>15-1-2018</td>
+                                <td>good</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+          </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT TO DRAW GRAPHIC DIAGRAM -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      	<script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+
+          google.charts.setOnLoadCallback(drawChart3);
+          google.charts.setOnLoadCallback(drawChart4);
+
+
+
+          function drawChart3() {
+    	      var data3 = google.visualization.arrayToDataTable([
+    	        ["nhân viên", "số dự án hoàn thành", { role: "style" } ],
+    	        ["Employee A", 10, "#b87333"],
+    	        ["Employee B", 11, "silver"],
+    	        ["Employee C", 12, "gold"],
+    	        ["Employee D", 11, "color: #e5e4e2"]
+    	      ]);
+
+    	      var view = new google.visualization.DataView(data3);
+    	      view.setColumns([0, 1,
+    	                       { calc: "stringify",
+    	                         sourceColumn: 1,
+    	                         type: "string",
+    	                         role: "annotation" },
+    	                       2]);
+
+    	      var options = {
+    	        title: "Overview about quantity project of employees",
+    	        bar: {groupWidth: "20%"},
+    	        legend: { position: "none" },
+    	      };
+    	      var chart = new google.visualization.ColumnChart(document.getElementById("QuantityOfProject"));
+    	      chart.draw(view, options);
+      		}
+
+      		function drawChart4() {
+    	      var data3 = google.visualization.arrayToDataTable([
+    	        ["nhân viên", "số buổi nghỉ", { role: "style" } ],
+    	        ['<a href="">"em B"</a>', 100, "#b87333"],
+    	        ["Employee B", 110, "silver"],
+    	        ["Employee C", 80, 	"gold"],
+    	        ["Employee D", 110, "color: #e5e4e2"]
+    	      ]);
+
+    	      var view = new google.visualization.DataView(data3);
+    	      view.setColumns([0, 1,
+    	                       { calc: "stringify",
+    	                         sourceColumn: 1,
+    	                         type: "string",
+    	                         role: "annotation" },
+    	                       2]);
+
+    	      var options = {
+    	        title: "The quantity ",
+    	        bar: {groupWidth: "20%"},
+    	        legend: { position: "none" },
+    	      };
+    	      var chart = new google.visualization.ColumnChart(document.getElementById("TotalTime"));
+    	      chart.draw(view, options);
+      		}
+
+        </script>
+    <div class="graphic-diagram col-sm-6">
+	    <div id="QuantityOfProject"></div>
+	    <div id="TotalTime"></div>
+    </div>
+</div>
 </body>
 </html>
