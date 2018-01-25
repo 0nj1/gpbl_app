@@ -26,8 +26,8 @@ public class MasterData {
     @Length(max = 256)
     private String masterDataKey;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Status status;
+    @NotNull
+    private Integer status;
 
     private Timestamp createdAt;
 

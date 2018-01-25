@@ -25,7 +25,9 @@ public class Ticket {
 
     //TODO: add ticket type
 
-    //TODO: add status
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status_id")
+    private Status status;
 
     @NotNull
 	private String title;

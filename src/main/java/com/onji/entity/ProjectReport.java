@@ -41,8 +41,8 @@ public class ProjectReport {
     @NotNull
     private Integer loc;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Status status;
+    @NotNull
+    private Integer status;
 
     @NotNull
     private Integer task;
