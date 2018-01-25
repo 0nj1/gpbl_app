@@ -1,13 +1,13 @@
 package com.onji.entity;
 
-import lombok.Getter;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Getter
+@Data
 @Entity
 @Table(name = "tickets")
 public class Ticket {

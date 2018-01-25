@@ -1,15 +1,13 @@
 package com.onji.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "projects")
 public class Project {
@@ -29,7 +27,9 @@ public class Project {
     @Length(max = 256)
     private String name;
 
-    // TODO: Add department
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     private Timestamp actualStartDate;
 
