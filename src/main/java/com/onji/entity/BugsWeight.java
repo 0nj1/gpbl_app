@@ -1,14 +1,12 @@
 package com.onji.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "bugs_weight")
 public class BugsWeight {

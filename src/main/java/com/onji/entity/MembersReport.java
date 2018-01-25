@@ -1,15 +1,13 @@
 package com.onji.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Data
 @Entity
-@Getter
-@Setter
 @Table(name = "members_report")
 public class MembersReport {
     @Id

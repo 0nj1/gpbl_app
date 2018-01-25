@@ -1,15 +1,13 @@
 package com.onji.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "projects")
 public class Project {
