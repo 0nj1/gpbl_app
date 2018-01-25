@@ -1,0 +1,76 @@
+
+/* Header */
+.body{
+  margin: 0;
+  background-color: #BDC3C7;
+}
+.header {
+  width: 100%;
+  height: 200px;
+  background-color: #34495E;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  float: left;
+}
+.header_name {
+  padding-top: 40px;
+  height: 100%;
+  border-right: solid 1px;
+}
+.header_gpbl {
+  border-right: solid 1px;
+  height: 100%;
+}
+.header_gpbl p {
+  font-size: 18px;
+}
+.header_label {
+  font-weight:bolder;
+  font-size: 14px;
+  padding-bottom: 15px;
+}
+.header_img {
+  height: 100%;
+  float: right;
+}
+.header_img img{
+  max-height: 100%;
+}
+/* MAIN */
+
+/* Main */
+.main {
+  padding-top: 20px;
+  border-right: 1px solid;
+}
+/* Main INPUT */
+.main_input {
+  height: 250px;
+  padding-bottom: 30px;
+  width: 100%;
+  background-color: #336E7B;
+}
+.main_input_slected {
+  height: 50px;
+  width: 40%;
+  padding-left: 20px;
+  float: left;
+}
+.main_input_slected span {
+  width: 40%;
+  color:white;
+}
+.main_input_submit {
+  width: 35%;
+  padding-left: 20px;
+}
+.main_input_submit input {
+  float: left;
+}
+
+/* Main Result */
+.main_result {
+
+}
