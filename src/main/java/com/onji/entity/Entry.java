@@ -22,17 +22,22 @@ public class Entry {
     @NotNull
     private Integer integratedEntryId;
 
-    @NotNull
-    private Integer ticketId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @NotNull
-    private Integer userId;
-
-
     private Integer actualHour;
 
-    private Integer ActivityId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "activity_id")
+    private Activity activity;
 
+    @NotNull
     private Timestamp spentAt;
 
     private Timestamp createdAt;
