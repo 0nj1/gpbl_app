@@ -1,33 +1,30 @@
 package com.onji.controller;
 
-import com.onji.repository.UserRepository;
-import com.onji.repository.ActivityRepository;
-import com.onji.repository.ProjectRepository;
-import com.onji.service.SampleService;
+import com.onji.form.ProjectMemberForm;
+import com.onji.service.ProjectMemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
-    private final SampleService sampleService;
-    private final UserRepository userRepository;
-    private final ActivityRepository activityRepository;
-    private final ProjectRepository projectRepository;
+    private final ProjectMemberService projectMemberService;
 
-    @RequestMapping("/")
-    String index(Model model) {
-        return "index";
-    }
-
-    @RequestMapping("/new-project")
+    @GetMapping("/")
     String newProject(Model model) {
         return "new-project";
     }
 
-    @RequestMapping("/project-info")
+    @PostMapping("/index")
+    String index(@ModelAttribute ProjectMemberForm memberForm, Model model) {
+        return "index";
+    }
+
+    @GetMapping("/project-info")
     String projectInfo(Model model) {
         return "project-info";
     }
