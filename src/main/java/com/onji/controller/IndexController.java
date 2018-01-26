@@ -19,13 +19,16 @@ public class IndexController {
 
     @RequestMapping("/")
     String index(Model model) {
-        model.addAttribute("sample", sampleService.sample());
-        userRepository.findAll().forEach(usersEntity -> {
-            System.out.println(usersEntity.getId());
-        });
-        //projectRepository.findAll().forEach(e -> System.out.println(e.getId()));
-        System.out.println(projectRepository.findOne(90).getUser().getMemberCode());
-
         return "index";
+    }
+
+    @RequestMapping("/new-project")
+    String newProject(Model model) {
+        return "new-project";
+    }
+
+    @RequestMapping("/project-info")
+    String projectInfo(Model model) {
+        return "project-info";
     }
 }

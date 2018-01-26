@@ -1,0 +1,41 @@
+
+/* Create Project */
+.body {
+}
+.create-project {
+  font-family: "Open Sans", serif;
+  margin: auto;
+  left: 0; bottom: 0; right: 0;
+  width: 60%;
+  float: left;
+  margin-top: 5px;
+  margin-left: 25%;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  /* background-color: #70a1ff; */
+  border-radius: 20px;
+}
+.pro-create-header {
+  /* border-bottom: 1px solid; */
+  font-weight: bold;
+}
+
+.pro-input{
+  padding-top: 30px;
+  text-align: left;
+}
+
+.pro-new-label {
+  padding-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+.btn-info {
+  color: black;
+  font-weight: bold;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/new-project.css"/>
+      <link rel="stylesheet" href="css/style.css"/>
+    <!-- Custom Style -->
+    <!-- font -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine" />
+    <!-- jQuery -->
+    <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            var content =
+            '<div style="padding-bottom:10px; height:40px;">' +
+              '<div class="form-group">' +
+                '<span class="col-sm-7">' +
+                  '<select class="form-control" name="Role" id="">' +
+                  '<option value="">Admin</option>' +
+                  '<option value="">Coder</option>' +
+                  '<option value="">QA</option>' +
+                  '<option value="">Tester</option>' +
+                  '</select>' +
+                '</span>' +
+                '<span class="col-sm-4">' +
+                  '<input type="number" class="form-control" name="" value="" />' +
+                '</span>' +
+              '</div>' +
+              '</div>';
+
+            $("#btn_add").click(function(){
+                $("#list_result").append(content);
+            });
+        });
+    </script>
+
+    <title>Create new Project</title>
+  </head>
+
+  <body style="background-color: #F6F6F6!important;">
+    <div class="">
+        <div class="header">
+            <div class="header_name col-sm-3">
+                <h2>The Final Project</h2>
+                <p>Support PM choose members for new project</p>
+            </div>
+            <div class="header_gpbl col-sm-5">
+                <!-- <h2 style="color:#ff6e6e;">2018 Global PBL Scholarship</h2> -->
+                <p style="color:#ff6e6e;padding-top: 25px;font-size: 36px;">
+                  2018 Global PBL Scholarship
+                </p>
+                <p style="padding-top: 10px;font-size:20px;">
+                    <b>Shibaura Institute of Technology</b>
+                </p>
+                <p style="font-weight:thin; font-size:18px;">
+                    Tokyo, January 2018
+                </p>
+            </div>
+            <div class="header_img col-sm-2">
+                <img class="img-rounded" src="imgs/sit_logo.png" alt="SIT LOGO"/>
+            </div>
+            <div class="header_img col-sm-2">
+                <img class="img-rounded" src="imgs/ptit_logo.jpg" alt=""/>
+            </div>
+        </div>
+
+        <!-- CREATE PROJECT -->
+        <div class="create-project container-fluid col-sm-8">
+          <div class="pro-create-header">
+            <h3 style="font-weight:bold;">
+              CHOOSE PROJECT MEMBER</h3>
+          </div>
+          <div class="pro-input col-sm-6">
+<!-- Project Name -->
+            <div class="form-group">
+              <div class="pro-new-label">
+                Project Name
+              </div>
+              <div class="pro-new-input">
+                <input type="text" name="" value="" class="form-control" />
+              </div>
+            </div>
+<!-- Start Date -->
+            <div class="form-group">
+              <div class="pro-new-label">
+                Start Date
+              </div>
+              <div class="pro-new-input">
+                <input type="date" name="" value="" class="form-control" />
+              </div>
+            </div>
+<!-- End Date -->
+            <div class="form-group">
+              <div class="pro-new-label">
+                End Date
+              </div>
+              <div class="pro-new-input">
+                <input type="date" name="" value="" class="form-control" />
+              </div>
+            </div>
+
+            <input type="submit" name="" value="Chose employee"
+              class="btn btn-danger" style="width:100%;"/>
+          </div>
+          <!-- Choose project member -->
+          <div class="pro-input col-sm-6">
+            <span class="pro-new-label"><p style="padding-bottom:10px;"
+              >Project Member</p></span>
+            <button type="button" name="button" id="btn_add"
+                class="btn btn-danger" style="width:100%;">Add role and quantity</button>
+            <div class="pro-input-result" >
+              <div class="list-group" id="list_result">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
