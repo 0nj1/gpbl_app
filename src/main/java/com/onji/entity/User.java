@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,8 +16,6 @@ public class User {
 
     private String userName;
 
-    private String password;
-
     private String permissions;
 
     private String position;
@@ -26,10 +25,6 @@ public class User {
     private Integer departmentId;
 
     private Timestamp lastLogin;
-
-    private String firstName;
-
-    private String lastName;
 
     private Integer sourceId;
 
