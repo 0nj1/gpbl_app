@@ -61,10 +61,13 @@
               <div class="main_input_slected form-inline">
                   <span class="col-sm-2">Role</span>
                   <select class="form-control" name="Role" id="">
-                      <option value="">Admin</option>
+                      <!-- <option value="">Admin</option>
                       <option value="">Coder</option>
                       <option value="">QA</option>
-                      <option value="">Tester</option>
+                      <option value="">Tester</option> -->
+                      <div th:each="role : ${roles}">
+                          <option value=""><span th:text="${role.name}"></span></option>
+                     </div>
                   </select>
               </div>
               <!-- Input Role -->

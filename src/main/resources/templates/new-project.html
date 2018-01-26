@@ -72,55 +72,57 @@
         </div>
 
         <!-- CREATE PROJECT -->
-        <div class="create-project container-fluid col-sm-8">
-          <div class="pro-create-header">
-            <h3 style="font-weight:bold;">
-              CHOOSE PROJECT MEMBER</h3>
-          </div>
-          <div class="pro-input col-sm-6">
-<!-- Project Name -->
-            <div class="form-group">
-              <div class="pro-new-label">
-                Project Name
-              </div>
-              <div class="pro-new-input">
-                <input type="text" name="" value="" class="form-control" />
-              </div>
+        <form action="post">
+          <div class="create-project container-fluid col-sm-8">
+            <div class="pro-create-header">
+              <h3 style="font-weight:bold;">
+                CHOOSE PROJECT MEMBER</h3>
             </div>
-<!-- Start Date -->
-            <div class="form-group">
-              <div class="pro-new-label">
-                Start Date
+            <div class="pro-input col-sm-6">
+  <!-- Project Name -->
+              <div class="form-group">
+                <div class="pro-new-label">
+                  Project Name
+                </div>
+                <div class="pro-new-input">
+                  <input type="text" name="projectName" value="" class="form-control" />
+                </div>
               </div>
-              <div class="pro-new-input">
-                <input type="date" name="" value="" class="form-control" />
+  <!-- Start Date -->
+              <div class="form-group">
+                <div class="pro-new-label">
+                  Start Date
+                </div>
+                <div class="pro-new-input">
+                  <input type="date" name="startDate" value="" class="form-control" />
+                </div>
               </div>
-            </div>
-<!-- End Date -->
-            <div class="form-group">
-              <div class="pro-new-label">
-                End Date
+  <!-- End Date -->
+              <div class="form-group">
+                <div class="pro-new-label">
+                  End Date
+                </div>
+                <div class="pro-new-input">
+                  <input type="date" name="endDate" value="" class="form-control" />
+                </div>
               </div>
-              <div class="pro-new-input">
-                <input type="date" name="" value="" class="form-control" />
-              </div>
-            </div>
 
-            <input type="submit" name="" value="Chose employee"
-              class="btn btn-danger" style="width:100%;"/>
-          </div>
-          <!-- Choose project member -->
-          <div class="pro-input col-sm-6">
-            <span class="pro-new-label"><p style="padding-bottom:10px;"
-              >Project Member</p></span>
-            <button type="button" name="button" id="btn_add"
-                class="btn btn-danger" style="width:100%;">Add role and quantity</button>
-            <div class="pro-input-result" >
-              <div class="list-group" id="list_result">
+              <input type="submit" name="chooseEmployee" value="Chose employee"
+                class="btn btn-danger" style="width:100%;"/>
+            </div>
+            <!-- Choose project member -->
+            <div class="pro-input col-sm-6">
+              <span class="pro-new-label"><p style="padding-bottom:10px;">
+                Project Member</p></span>
+              <button type="button" name="button" id="btn_add"
+                  class="btn btn-danger" style="width:100%;">Add role and quantity</button>
+              <div class="pro-input-result" >
+                <div class="list-group" id="list_result">
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </form>
     </div>
   </body>
 </html>
