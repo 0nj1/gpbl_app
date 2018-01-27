@@ -9,27 +9,26 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "departments")
-public class Department {
+@Table(name = "status")
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotNull
-    private Integer parentId;
+    private Integer key;
 
-    @NotNull
     @Length(max = 256)
     private String name;
 
     @NotNull
-    private Integer managerId;
+    private Integer sourceId;
 
     @NotNull
-    private Integer status;
+    private Integer relatedId;
 
     @NotNull
-    private String description;
+    private Integer integratedStatusId;
 
     private Timestamp createdAt;
 
