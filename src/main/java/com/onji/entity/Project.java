@@ -35,6 +35,10 @@ public class Project {
 
     private Timestamp actualEndDate;
 
+    private Timestamp plantStartDate;
+
+    private Timestamp plantEndDate;
+
     @NotNull
     private Integer languageId;
 

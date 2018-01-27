@@ -1,0 +1,47 @@
+. body {
+  font-family: sans;
+}
+
+.project-info {
+  padding-top: 10px;
+  width: 100%;
+  /* background-color: red; */
+}
+.result-row {
+  padding-bottom: 20px;
+  width: 100%;
+  height: 60px;
+  float: left;
+}
+.panel {
+  float: left;
+  font-family: "Open Sans", serif;
+  margin: auto;
+  left: 0; bottom: 0; right: 0;
+  width: 60%;
+  float: left;
+  margin-top: 5px;
+  margin-left: 25%;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  /* background-color: #70a1ff; */
+  border-radius: 20px;
+}
+.panel-heading {
+  text-align: left;
+  line-height: 40px;
+}
+.list-emps {
+  padding-top: 20px;
+  float: left;
+}
+.list-emps-heading {
+  float: left;
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.list-emps-body {
+
+}

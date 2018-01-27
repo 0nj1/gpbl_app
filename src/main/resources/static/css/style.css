@@ -1,31 +1,35 @@
 
 /* Header */
 .body {
-  margin-top: 10px!important;
   background-color: #BDC3C7;
 }
 .header {
   width: 100%;
   height: 200px;
-  background-color: #34495E;
+  /* background-color: #34495E; */
+  background-color: #2f3542;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   float: left;
+  border-radius: 1px;
+  font-family: "Open Sans", serif!important;
 }
 .header_name {
+  text-align: center;
   padding-top: 40px;
   height: 100%;
   border-right: solid 1px;
 }
 .header_gpbl {
+  text-align: center;
   border-right: solid 1px;
   border-right-color: gray;
   height: 100%;
 }
 .header_gpbl p {
-  font-size: 18px;
+  font-size: 22px;
 }
 .header_label {
   font-weight:bolder;
@@ -46,6 +50,7 @@
   padding-top: 20px;
   border-right: 0.5px dotted;
   float: left;
+  font-family: "Open Sans", serif;
 }
 /* Main INPUT */
 .main_input {
@@ -68,7 +73,7 @@
 }
 .main_input_submit {
   width: auto;
-  float: left;
+  float: right;
 }
 .main_input_submit input {
   float: left;
@@ -77,6 +82,7 @@
 
 /* Main Result */
 .main_result {
+  font-family: "Open Sans", serif;
 }
 
 #tb_label {
@@ -93,7 +99,49 @@
 #table-boderd {
   border-left: solid 2px;
 }
+/* GRAPHIC DIAGRAM */
+.graphic-diagram {
+  font-family: "Open Sans", serif;
+  padding-top: 20px;
+  height: auto;
+}
+.show-all-emp {
+  float: right;
+}
+.graphic-diagram-compare {
+  display: none;
+}
+
+#columnchart_material {
+  font-family: "Open Sans", serif;
+  width: 100%;
+  height: 300px;
+}
 
 #QuantityOfProject #TotalTime{
-  width: 100%; height: 300px;
+  width: 100%;
+  height: 100%;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 20px;
+  width: 100%;
+  height: 300px;
+  background-color: #2C3E50;
+  color: white;
+}
+.footer_team{
+  padding-top: 20px;
+}
+.footer_header {
+  padding-left: 10px;
+}
+.footer_member_img {
+
+  height: 100px;
+  width: 100%;
+}
+.footer_member_name {
+  margin-top: 10px;
 }

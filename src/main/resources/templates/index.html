@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/style.css"/>
     <!-- Custom Style -->
 
+    <!-- font -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine" />
     <!-- jQuery -->
     <script
             src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -18,17 +20,20 @@
             crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: #F6F6F6!important;">
 <div class="container-fluid">
     <!-- HEADER -->
     <div class="header">
-        <div class="header_name col-sm-4">
+        <div class="header_name col-sm-3">
             <h2>The Final Project</h2>
             <p>Support PM choose members for new project</p>
         </div>
-        <div class="header_gpbl col-sm-4">
-            <h2 style="color:#ff6e6e;">2018 Global PBL Scholarship</h2>
-            <p style="padding-top: 10px;font-size:20px">
+        <div class="header_gpbl col-sm-5">
+            <!-- <h2 style="color:#ff6e6e;">2018 Global PBL Scholarship</h2> -->
+            <p style="color:#ff6e6e;padding-top: 25px;font-size: 36px;">
+              2018 Global PBL Scholarship
+            </p>
+            <p style="padding-top: 10px;font-size:20px;">
                 <b>Shibaura Institute of Technology</b>
             </p>
             <p style="font-weight:thin; font-size:18px;">
@@ -45,7 +50,7 @@
 
     <!-- Main -->
     <div class="main col-sm-6">
-        <!-- Input -->
+        <!-- INPUT -->
         <div class="main_input panel panel-primary">
             <div class="panel-heading">
               <h4>
@@ -56,20 +61,13 @@
               <div class="main_input_slected form-inline">
                   <span class="col-sm-2">Role</span>
                   <select class="form-control" name="Role" id="">
-                      <option value="">Admin</option>
+                      <!-- <option value="">Admin</option>
                       <option value="">Coder</option>
                       <option value="">QA</option>
-                      <option value="">Tester</option>
-                  </select>
-              </div>
-              <!-- Input Location -->
-              <div class="main_input_slected form-inline">
-                  <span class="col-sm-2">Location</span>
-                  <select name="Location" id="" class="form-control">
-                      <option value="">Japan</option>
-                      <option value="">Viet Nam</option>
-                      <option value="">USA</option>
-                      <option value="">Korea</option>
+                      <option value="">Tester</option> -->
+                      <div th:each="role : ${roles}">
+                          <option value=""><span th:text="${role.name}"></span></option>
+                     </div>
                   </select>
               </div>
               <!-- Input Role -->
@@ -80,148 +78,205 @@
               </form>
             </div>
         </div>
-        <!-- Main Result -->
+        <!-- LIST OF EMPLOYEES-->
         <div class="main_result panel panel-primary">
           <div class="panel-heading">
-            <h4  style="">The result</h4>
+            <h4>List of Emplyees</h4>
           </div>
           <div class="panel-body">
-            <table class="table table-striped" id="table-boderd">
-                <tr>
-                    <td id="tb_label">Role</td>
-                    <td>Admin</td>
-                </tr>
-                <tr>
-                    <td id="tb_label">Name</td>
-                    <td>Tran Manh Toan</td>
-                </tr>
-                <tr>
-                    <td id="tb_label">Age</td>
-                    <td>22</td>
-                </tr>
-                <tr>
-                    <td id="tb_label">Total time work</td>
-                    <td>1000 hour</td>
-                </tr>
-                <tr>
-                    <td id="tb_label">Quantity of project</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td id="tb_lable_01">
-                      List of project
-                    </td>
-                    <td>
-                        <table class="table table-condensed">
-                            <thead>
-                                <tr>
-                                  <th>Index</th>
-                                  <th>Name</th>
-                                  <th>Total time</th>
-                                  <th>Start time</th>
-                                  <th>End time</th>
-                                  <th>Rating</th>
-                                </tr>
-                            </thead>
-                            <tr>
-                                <td>1</td>
-                                <td>gPBL</td>
-                                <td>100 hour</td>
-                                <td>10-1-2018</td>
-                                <td>15-1-2018</td>
-                                <td>good</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>gPBL</td>
-                                <td>100 hour</td>
-                                <td>10-1-2018</td>
-                                <td>15-1-2018</td>
-                                <td>good</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>gPBL</td>
-                                <td>100 hour</td>
-                                <td>10-1-2018</td>
-                                <td>15-1-2018</td>
-                                <td>good</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
+            <table class="table" id="table-boderd">
+                <thead style="font-weight:bolder;">
+                    <td>Name</td>
+                    <td>Role</td>
+                    <td>Location</td>
+                    <td>Option</td>
+                    <td>Select</td>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>Tran Manh Toan</td>
+                      <td>Admin</td>
+                      <td>Japan</td>
+                      <td><a href="#" class="btn btn-info">View details</a></td>
+                      <td><input type="checkbox" value="" name="" class="checkbox"/></td>
+                  </tr>
+                  <tr>
+                      <td>Tran Manh Toan</td>
+                      <td>Admin</td>
+                      <td>Japan</td>
+                      <td><a href="#" class="btn btn-info">View details</a></td>
+                      <td><input type="checkbox" value="" name="" class="checkbox"/></td>
+                  </tr>
+                  <tr>
+                      <td>Tran Manh Toan</td>
+                      <td>Admin</td>
+                      <td>Japan</td>
+                      <td><a href="#" class="btn btn-info">View details</a></td>
+                      <td><input type="checkbox" value="" name="" class="checkbox"/></td>
+                  </tr>
+                </tbody>
             </table>
+
+            <input type="submit" name="" value="Add Employee" class="btn btn-danger" />
+
           </div>
         </div>
-    </div>
-
+      </div>
     <!-- SCRIPT TO DRAW GRAPHIC DIAGRAM -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       	<script type="text/javascript">
           google.charts.load('current', {'packages':['corechart']});
 
-          google.charts.setOnLoadCallback(drawChart3);
-          google.charts.setOnLoadCallback(drawChart4);
+          google.charts.load('current', {'packages':['bar']});
+          google.charts.setOnLoadCallback(drawChart6);
 
+          function drawChart6() {
+            var data = google.visualization.arrayToDataTable([
+              ['THE EMPLOYEES', 'Total Joined Porject', 'Projects Sucessfully'],
+              ['A', 10, 4],
+              ['B', 11, 3],
+              ['C', 12, 6],
+              ['D', 13, 5]
+            ]);
+            var options = {
+              chart: {
+                subtitle: 'All projects vs Success projects',
+              },
+              bar: {groupWidth: "50%"},
+            };
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
 
-
-          function drawChart3() {
-    	      var data3 = google.visualization.arrayToDataTable([
-    	        ["nhân viên", "số dự án hoàn thành", { role: "style" } ],
-    	        ["Employee A", 10, "#b87333"],
-    	        ["Employee B", 11, "silver"],
-    	        ["Employee C", 12, "gold"],
-    	        ["Employee D", 11, "color: #e5e4e2"]
-    	      ]);
-
-    	      var view = new google.visualization.DataView(data3);
-    	      view.setColumns([0, 1,
-    	                       { calc: "stringify",
-    	                         sourceColumn: 1,
-    	                         type: "string",
-    	                         role: "annotation" },
-    	                       2]);
-
-    	      var options = {
-    	        title: "Overview about quantity project of employees",
-    	        bar: {groupWidth: "20%"},
-    	        legend: { position: "none" },
-    	      };
-    	      var chart = new google.visualization.ColumnChart(document.getElementById("QuantityOfProject"));
-    	      chart.draw(view, options);
-      		}
-
-      		function drawChart4() {
-    	      var data3 = google.visualization.arrayToDataTable([
-    	        ["nhân viên", "số buổi nghỉ", { role: "style" } ],
-    	        ['<a href="">"em B"</a>', 100, "#b87333"],
-    	        ["Employee B", 110, "silver"],
-    	        ["Employee C", 80, 	"gold"],
-    	        ["Employee D", 110, "color: #e5e4e2"]
-    	      ]);
-
-    	      var view = new google.visualization.DataView(data3);
-    	      view.setColumns([0, 1,
-    	                       { calc: "stringify",
-    	                         sourceColumn: 1,
-    	                         type: "string",
-    	                         role: "annotation" },
-    	                       2]);
-
-    	      var options = {
-    	        title: "The quantity ",
-    	        bar: {groupWidth: "20%"},
-    	        legend: { position: "none" },
-    	      };
-    	      var chart = new google.visualization.ColumnChart(document.getElementById("TotalTime"));
-    	      chart.draw(view, options);
-      		}
-
+          }
         </script>
+    <!-- THE SINGLE DIAGRAM OF A EMPLOYEE -->
     <div class="graphic-diagram col-sm-6">
-	    <div id="QuantityOfProject"></div>
-	    <div id="TotalTime"></div>
+      <!-- Main Result -->
+      <div class="main_result panel panel-primary">
+        <div class="panel-heading">
+          <h4  style="">The result</h4>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped" id="table-boderd">
+              <tr>
+                  <td id="tb_label">Role</td>
+                  <td>Admin</td>
+              </tr>
+              <tr>
+                  <td id="tb_label">Name</td>
+                  <td>Tran Manh Toan</td>
+              </tr>
+              <tr>
+                  <td id="tb_label">Age</td>
+                  <td>22</td>
+              </tr>
+              <tr>
+                  <td id="tb_label">Total time work</td>
+                  <td>1000 hour</td>
+              </tr>
+              <tr>
+                  <td id="tb_label">Quantity of project</td>
+                  <td>1</td>
+              </tr>
+              <tr>
+                  <td id="tb_lable_01">
+                    List of project
+                  </td>
+                  <td>
+                      <table class="table table-condensed"
+                          style="border-left: 1px solid;">
+                          <thead>
+                              <tr>
+                                <th>Index</th>
+                                <th>Name</th>
+                                <th>Total time</th>
+                                <th>Start time</th>
+                                <th>End time</th>
+                                <th>Rating</th>
+                              </tr>
+                          </thead>
+                          <tr>
+                              <td>1</td>
+                              <td>gPBL</td>
+                              <td>100 hour</td>
+                              <td>10-1-2018</td>
+                              <td>15-1-2018</td>
+                              <td>good</td>
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>gPBL</td>
+                              <td>100 hour</td>
+                              <td>10-1-2018</td>
+                              <td>15-1-2018</td>
+                              <td>good</td>
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>gPBL</td>
+                              <td>100 hour</td>
+                              <td>10-1-2018</td>
+                              <td>15-1-2018</td>
+                              <td>good</td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+        </div>
+      </div>
+      <h3>The Employee's Diagram</h3>
+        <div id="columnchart_material"></div>
     </div>
 </div>
+
+<!-- FOOTER -->
+<footer class="footer container">
+  <div class="footer_team col-sm-8">
+    <span style="font-size:36px;">Team One</span>
+    <div class="footer_header">
+      <h4>List of Members</h4>
+      <div class="footer_member col-sm-3">
+        <div class="footer_member_img">
+          <img style="max-height:100%; max-width:100%;"
+            src="imgs/sit_logo.png" alt="" />
+        </div>
+        <div class="footer_member_name">
+          <p>MEMBER 1</p>
+        </div>
+      </div>
+      <div class="footer_member col-sm-3">
+        <div class="footer_member_img">
+          <img style="max-height:100%; max-width:100%;"
+            src="imgs/sit_logo.png" alt="" />
+        </div>
+        <div class="footer_member_name">
+          <p>MEMBER 1</p>
+        </div>
+      </div>
+      <div class="footer_member col-sm-3">
+        <div class="footer_member_img">
+          <img style="max-height:100%; max-width:100%;"
+            src="imgs/sit_logo.png" alt="" />
+        </div>
+        <div class="footer_member_name">
+          <p>MEMBER 1</p>
+        </div>
+      </div>
+      <div class="footer_member col-sm-3">
+        <div class="footer_member_img">
+          <img style="max-height:100%; max-width:100%;"
+            src="imgs/sit_logo.png" alt="" />
+        </div>
+        <div class="footer_member_name">
+          <p>MEMBER 1</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4" style="height:100%;">
+    <img style="max-height:100%;" src="imgs/sit_logo.png" alt="" />
+  </div>
+</footer>
 </body>
 </html>
