@@ -58,7 +58,7 @@
                 <label class="form-group">
                     <select id="search-role" class="form-control" name="Role" style="float: left">
                         <option th:each="r : ${roles}" th:value="${r}" th:selected="${r == role}">
-                            <span th:text="${role}">
+                            <span th:text="${r}">
                             </span>
                         </option>
                     </select>
