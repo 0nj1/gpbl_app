@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface EntryRepository extends JpaRepository<Entry, Integer> {
     List<Entry> findByUserId(Integer userId);
+    List<Entry> findByProjectIdAndUserId(Integer projectId, Integer userId);
 }
