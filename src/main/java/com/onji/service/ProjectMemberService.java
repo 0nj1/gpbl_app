@@ -25,6 +25,7 @@ public class ProjectMemberService {
     private final RoleRepository roleRepository;
     private final EntryRepository entryRepository;
     private final UserRuntimeService userRuntimeService;
+    private final EmployeeAssessmentService employeeAssessmentService;
 
     public List<Employee> searchEmployees(String roleStr) {
         Role role = roleRepository.getByName(roleStr);
@@ -50,7 +51,7 @@ public class ProjectMemberService {
                                     totalTimes.get(y.getProject().getId()),
                                     y.getProject().getPlantStartDate().toLocalDateTime(),
                                     y.getProject().getPlantEndDate().toLocalDateTime(),
-                                    EmployeeAssessment.A))
+                                    employeeAssessmentService.calculate(y.getProject(), x.getId())))
                             .collect(Collectors.toList());
 
                     UserRuntimeService.ExtendedUser extendedUser = userRuntimeService.getExtendedEmployee(x);
