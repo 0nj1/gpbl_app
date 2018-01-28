@@ -1,282 +1,242 @@
 <!-- home.html -->
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
-    <!-- Custom Style -->
-
-    <!-- font -->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine" />
-    <!-- jQuery -->
-    <script
-            src="https://code.jquery.com/jquery-2.2.4.min.js"
+    <link rel="stylesheet" href="css/sanitize.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"/>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
             crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
     <title>Document</title>
 </head>
 <body style="background-color: #F6F6F6!important;">
-<div class="container-fluid">
-    <!-- HEADER -->
-    <div class="header">
-        <div class="header_name col-sm-3">
-            <h2>The Final Project</h2>
-            <p>Support PM choose members for new project</p>
-        </div>
-        <div class="header_gpbl col-sm-5">
-            <!-- <h2 style="color:#ff6e6e;">2018 Global PBL Scholarship</h2> -->
-            <p style="color:#ff6e6e;padding-top: 25px;font-size: 36px;">
-              2018 Global PBL Scholarship
-            </p>
-            <p style="padding-top: 10px;font-size:20px;">
-                <b>Shibaura Institute of Technology</b>
-            </p>
-            <p style="font-weight:thin; font-size:18px;">
-                Tokyo, January 2018
-            </p>
-        </div>
-        <div class="header_img col-sm-2">
-            <img class="img-rounded" src="imgs/sit_logo.png" alt="SIT LOGO"/>
-        </div>
-        <div class="header_img col-sm-2">
-            <img class="img-rounded" src="imgs/ptit_logo.jpg" alt=""/>
-        </div>
+<div class="header">
+    <div class="header_name col-sm-3">
+        <h2>The Final Project</h2>
+        <p>Support PM choose members for new project</p>
     </div>
-
+    <div class="header_gpbl col-sm-5">
+        <!-- <h2 style="color:#ff6e6e;">2018 Global PBL Scholarship</h2> -->
+        <p style="color:#ff6e6e;padding-top: 17px;font-size: 32px;">
+            2018 Global PBL Scholarship
+        </p>
+        <p style="padding-top: 10px;font-size:20px;">
+            <b>Shibaura Institute of Technology</b>
+        </p>
+        <p style="font-weight:400; font-size:18px;">
+            Tokyo, January 2018
+        </p>
+    </div>
+    <div class="header_img col-sm-2">
+        <img class="img-rounded" src="imgs/sit_logo.png" alt="SIT LOGO"/>
+    </div>
+    <div class="header_img col-sm-2">
+        <img class="img-rounded" src="imgs/ptit_logo.jpg" alt=""/>
+    </div>
+</div>
+<div class="container-fluid min-window">
     <!-- Main -->
     <div class="main col-sm-6">
         <!-- INPUT -->
         <div class="main_input panel panel-primary">
             <div class="panel-heading">
-              <h4>
-                  Choose the member's informations
-              </h4>
+                <h4>
+                    Choose the member's informations
+                </h4>
             </div>
-            <div class="panel-body">
-              <div class="main_input_slected form-inline">
-                  <span class="col-sm-2">Role</span>
-                  <select class="form-control" name="Role" id="">
-                      <!-- <option value="">Admin</option>
-                      <option value="">Coder</option>
-                      <option value="">QA</option>
-                      <option value="">Tester</option> -->
-                      <div th:each="role : ${roles}">
-                          <option value=""><span th:text="${role.name}"></span></option>
-                     </div>
-                  </select>
-              </div>
-              <!-- Input Role -->
-              <form>
-                  <div class="main_input_submit">
-                      <input type="submit" value="Search" class="btn btn-danger"/>
-                  </div>
-              </form>
-            </div>
+            <form class="form-inline form-padding">
+                <div class="form-group">
+                    Role
+                </div>
+                <label class="form-group">
+                    <select id="search-role" class="form-control" name="Role" style="float: left">
+                        <option th:each="r : ${roles}" th:value="${r}" th:selected="${r == role}">
+                            <span th:text="${role}">
+                            </span>
+                        </option>
+                    </select>
+                </label>
+                <button id="search" type="submit" class="btn btn-danger main_input_submit">Search</button>
+            </form>
         </div>
         <!-- LIST OF EMPLOYEES-->
         <div class="main_result panel panel-primary">
-          <div class="panel-heading">
-            <h4>List of Emplyees</h4>
-          </div>
-          <div class="panel-body">
-            <table class="table" id="table-boderd">
-                <thead style="font-weight:bolder;">
+            <div class="panel-heading">
+                <h4>List of Emplyees</h4>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <!-- Project Name -->
+                    <div class="form-group">
+                        <div class="pro-new-label">
+                            Project Name
+                        </div>
+                        <div class="pro-new-input">
+                            <input type="text" name="projectName" value="" class="form-control"/>
+                        </div>
+                    </div>
+                    <!-- Start Date -->
+                    <div class="form-group">
+                        <div class="pro-new-label">
+                            Start Date
+                        </div>
+                        <div class="pro-new-input">
+                            <input type="date" name="startDate" value="" class="form-control"/>
+                        </div>
+                    </div>
+                    <!-- End Date -->
+                    <div class="form-group">
+                        <div class="pro-new-label">
+                            End Date
+                        </div>
+                        <div class="pro-new-input">
+                            <input type="date" name="endDate" value="" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <h3>Choose project member</h3>
+                <table class="table" id="table-boderd">
+                    <thead style="font-weight:bolder;">
                     <td>Name</td>
-                    <td>Role</td>
                     <td>Location</td>
                     <td>Option</td>
                     <td>Select</td>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td>Tran Manh Toan</td>
-                      <td>Admin</td>
-                      <td>Japan</td>
-                      <td><a href="#" class="btn btn-info">View details</a></td>
-                      <td><input type="checkbox" value="" name="" class="checkbox"/></td>
-                  </tr>
-                  <tr>
-                      <td>Tran Manh Toan</td>
-                      <td>Admin</td>
-                      <td>Japan</td>
-                      <td><a href="#" class="btn btn-info">View details</a></td>
-                      <td><input type="checkbox" value="" name="" class="checkbox"/></td>
-                  </tr>
-                  <tr>
-                      <td>Tran Manh Toan</td>
-                      <td>Admin</td>
-                      <td>Japan</td>
-                      <td><a href="#" class="btn btn-info">View details</a></td>
-                      <td><input type="checkbox" value="" name="" class="checkbox"/></td>
-                  </tr>
-                </tbody>
-            </table>
-
-            <input type="submit" name="" value="Add Employee" class="btn btn-danger" />
-
-          </div>
+                    </thead>
+                    <tbody>
+                    <!-- Foreach of thymeleaf -->
+                    <th:block th:each="employee : ${employees}">
+                        <tr>
+                            <td th:text="${employee.name}"></td>
+                            <td th:text="${employee.location}">Japan</td>
+                            <!-- Click in viewdetails -> show specify employee-->
+                            <td>
+                                <button class="btn btn-info details">
+                                    View details
+                                    <div style="display: none" th:text="${employee.id}"></div>
+                                </button>
+                            </td>
+                            <td><input type="checkbox" name="checkbox" class="employee-checkbox" th:value="${employee.id}"/></td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+                <button id="add-employee" class="btn btn-danger" style="width:100%;">Add employees</button>
+                <h3>Selected Members</h3>
+                <table class="table" id="table-boderd">
+                    <thead style="font-weight:bolder;">
+                    </thead>
+                    <tbody>
+                    <!-- Foreach of thymeleaf -->
+                    <th:block th:each="se : ${selectedEmployees}">
+                        <tr>
+                            <td th:text="${se.name}"></td>
+                            <td th:text="${se.location}"></td>
+                            <input style="display: none" class="selected-employees" type="number" th:value="${se.id}"/>
+                            <input style="display: none" class="selected-employees-roles" type="text" th:value="${se.location}"/>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+                <button id="create-project" class="btn btn-danger" style="width:100%;">Create new project</button>
+            </div>
         </div>
-      </div>
+    </div>
     <!-- SCRIPT TO DRAW GRAPHIC DIAGRAM -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      	<script type="text/javascript">
-          google.charts.load('current', {'packages':['corechart']});
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
 
-          google.charts.load('current', {'packages':['bar']});
-          google.charts.setOnLoadCallback(drawChart6);
+        google.charts.load('current', {'packages': ['bar']});
+        google.charts.setOnLoadCallback(drawChart6);
 
-          function drawChart6() {
+        function drawChart6() {
             var data = google.visualization.arrayToDataTable([
-              ['THE EMPLOYEES', 'Total Joined Porject', 'Projects Sucessfully'],
-              ['A', 10, 4],
-              ['B', 11, 3],
-              ['C', 12, 6],
-              ['D', 13, 5]
+                ['THE EMPLOYEES', 'Total Joined Porject', 'Projects Sucessfully'],
+                ['A', 10, 4],
+                ['B', 11, 3],
+                ['C', 12, 6],
+                ['D', 13, 5]
             ]);
             var options = {
-              chart: {
-                subtitle: 'All projects vs Success projects',
-              },
-              bar: {groupWidth: "50%"},
+                chart: {
+                    subtitle: 'All projects vs Success projects',
+                },
+                bar: {groupWidth: "50%"},
             };
             var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
             chart.draw(data, google.charts.Bar.convertOptions(options));
 
-          }
-        </script>
+        }
+    </script>
     <!-- THE SINGLE DIAGRAM OF A EMPLOYEE -->
     <div class="graphic-diagram col-sm-6">
-      <!-- Main Result -->
-      <div class="main_result panel panel-primary">
-        <div class="panel-heading">
-          <h4  style="">The result</h4>
+        <div class="main_result panel panel-primary">
+            <div class="panel-heading">
+                <h4 style="">The result</h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped" id="table-boderd">
+                    <tr>
+                        <td id="tb_label">Name</td>
+                        <td th:text="${employee.name}"></td>
+                    </tr>
+                    <tr>
+                        <td id="tb_label">Age</td>
+                        <td th:text="${employee.age}"></td>
+                    </tr>
+                    <tr>
+                        <td id="tb_label">Total time work</td>
+                        <td th:text="${employee.totalTime}"></td>
+                    </tr>
+                    <tr>
+                        <td id="tb_label">Quantity of project</td>
+                        <td th:text="${employee.projects.size()}"></td>
+                    </tr>
+                    <tr>
+                        <td id="tb_lable_01">
+                            List of project
+                        </td>
+                        <td>
+                            <table class="table table-condensed"
+                                   style="border-left: 1px solid;">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Total time</th>
+                                    <th>Start time</th>
+                                    <th>End time</th>
+                                    <th>Rating</th>
+                                </tr>
+                                </thead>
+                                <th:block th:each="project : ${employee.projects}">
+                                    <tr>
+                                        <td th:text="${project.name}"></td>
+                                        <td th:text="${project.totalTime}"></td>
+                                        <td th:text="${project.startTime}"></td>
+                                        <td th:text="${project.endTime}"></td>
+                                        <td th:text="${project.employeeAssessment}"></td>
+                                    </tr>
+                                </th:block>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="panel-body">
-          <table class="table table-striped" id="table-boderd">
-              <tr>
-                  <td id="tb_label">Role</td>
-                  <td>Admin</td>
-              </tr>
-              <tr>
-                  <td id="tb_label">Name</td>
-                  <td>Tran Manh Toan</td>
-              </tr>
-              <tr>
-                  <td id="tb_label">Age</td>
-                  <td>22</td>
-              </tr>
-              <tr>
-                  <td id="tb_label">Total time work</td>
-                  <td>1000 hour</td>
-              </tr>
-              <tr>
-                  <td id="tb_label">Quantity of project</td>
-                  <td>1</td>
-              </tr>
-              <tr>
-                  <td id="tb_lable_01">
-                    List of project
-                  </td>
-                  <td>
-                      <table class="table table-condensed"
-                          style="border-left: 1px solid;">
-                          <thead>
-                              <tr>
-                                <th>Index</th>
-                                <th>Name</th>
-                                <th>Total time</th>
-                                <th>Start time</th>
-                                <th>End time</th>
-                                <th>Rating</th>
-                              </tr>
-                          </thead>
-                          <tr>
-                              <td>1</td>
-                              <td>gPBL</td>
-                              <td>100 hour</td>
-                              <td>10-1-2018</td>
-                              <td>15-1-2018</td>
-                              <td>good</td>
-                          </tr>
-                          <tr>
-                              <td>1</td>
-                              <td>gPBL</td>
-                              <td>100 hour</td>
-                              <td>10-1-2018</td>
-                              <td>15-1-2018</td>
-                              <td>good</td>
-                          </tr>
-                          <tr>
-                              <td>1</td>
-                              <td>gPBL</td>
-                              <td>100 hour</td>
-                              <td>10-1-2018</td>
-                              <td>15-1-2018</td>
-                              <td>good</td>
-                          </tr>
-                      </table>
-                  </td>
-              </tr>
-          </table>
-        </div>
-      </div>
-      <h3>The Employee's Diagram</h3>
+        <h3>The Employee's Diagram</h3>
         <div id="columnchart_material"></div>
     </div>
 </div>
-
-<!-- FOOTER -->
-<footer class="footer container">
-  <div class="footer_team col-sm-8">
-    <span style="font-size:36px;">Team One</span>
-    <div class="footer_header">
-      <h4>List of Members</h4>
-      <div class="footer_member col-sm-3">
-        <div class="footer_member_img">
-          <img style="max-height:100%; max-width:100%;"
-            src="imgs/sit_logo.png" alt="" />
-        </div>
-        <div class="footer_member_name">
-          <p>MEMBER 1</p>
-        </div>
-      </div>
-      <div class="footer_member col-sm-3">
-        <div class="footer_member_img">
-          <img style="max-height:100%; max-width:100%;"
-            src="imgs/sit_logo.png" alt="" />
-        </div>
-        <div class="footer_member_name">
-          <p>MEMBER 1</p>
-        </div>
-      </div>
-      <div class="footer_member col-sm-3">
-        <div class="footer_member_img">
-          <img style="max-height:100%; max-width:100%;"
-            src="imgs/sit_logo.png" alt="" />
-        </div>
-        <div class="footer_member_name">
-          <p>MEMBER 1</p>
-        </div>
-      </div>
-      <div class="footer_member col-sm-3">
-        <div class="footer_member_img">
-          <img style="max-height:100%; max-width:100%;"
-            src="imgs/sit_logo.png" alt="" />
-        </div>
-        <div class="footer_member_name">
-          <p>MEMBER 1</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4" style="height:100%;">
-    <img style="max-height:100%;" src="imgs/sit_logo.png" alt="" />
-  </div>
-</footer>
+<div style="display: none">
+    <input type="text" class="roles" th:each="role : ${roles}" th:value="${role}"/>
+    <input type="number" class="numbers" th:each="number : ${numbers}" th:value="${number}"/>
+</div>
 </body>
 </html>

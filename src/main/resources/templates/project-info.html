@@ -1,130 +1,99 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/project-info.css"/>
-      <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
     <!-- Custom Style -->
     <!-- font -->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"/>
     <!-- jQuery -->
     <script
-        src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
-
-    <script>
-        $(document).ready(function(){
-            var content =
-            '<div style="padding-bottom:10px; height:40px;">' +
-              '<div class="form-group">' +
-                '<span class="col-sm-7">' +
-                  '<select class="form-control" name="Role" id="">' +
-                  '<option value="">Admin</option>' +
-                  '<option value="">Coder</option>' +
-                  '<option value="">QA</option>' +
-                  '<option value="">Tester</option>' +
-                  '</select>' +
-                '</span>' +
-                '<span class="col-sm-4">' +
-                  '<input type="number" class="form-control" name="" value="" />' +
-                '</span>' +
-              '</div>' +
-              '</div>';
-
-            $("#btn_add").click(function(){
-                $("#list_result").append(content);
-            });
-        });
-    </script>
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
     <title>The Project informations</title>
-  </head>
-  <body style="background-color: #F6F6F6!important;">
-    <div class="">
-        <div class="header">
-            <div class="header_name col-sm-3">
-                <h2>The Final Project</h2>
-                <p>Support PM choose members for new project</p>
-            </div>
-            <div class="header_gpbl col-sm-5">
-                <!-- <h2 style="color:#ff6e6e;">2018 Global PBL Scholarship</h2> -->
-                <p style="color:#ff6e6e;padding-top: 25px;font-size: 36px;">
-                  2018 Global PBL Scholarship
-                </p>
-                <p style="padding-top: 10px;font-size:20px;">
-                    <b>Shibaura Institute of Technology</b>
-                </p>
-                <p style="font-weight:thin; font-size:18px;">
-                    Tokyo, January 2018
-                </p>
-            </div>
-            <div class="header_img col-sm-2">
-                <img class="img-rounded" src="imgs/sit_logo.png" alt="SIT LOGO"/>
-            </div>
-            <div class="header_img col-sm-2">
-                <img class="img-rounded" src="imgs/ptit_logo.jpg" alt=""/>
-            </div>
+</head>
+<body style="background-color: #F6F6F6!important;">
+<div class="">
+    <div class="header">
+        <div class="header_name col-sm-3">
+            <h2>The Final Project</h2>
+            <p>Support PM choose members for new project</p>
         </div>
+        <div class="header_gpbl col-sm-5">
+            <!-- <h2 style="color:#ff6e6e;">2018 Global PBL Scholarship</h2> -->
+            <p style="color:#ff6e6e;padding-top: 25px;font-size: 36px;">
+                2018 Global PBL Scholarship
+            </p>
+            <p style="padding-top: 10px;font-size:20px;">
+                <b>Shibaura Institute of Technology</b>
+            </p>
+            <p style="font-weight:thin; font-size:18px;">
+                Tokyo, January 2018
+            </p>
+        </div>
+        <div class="header_img col-sm-2">
+            <img class="img-rounded" src="imgs/sit_logo.png" alt="SIT LOGO"/>
+        </div>
+        <div class="header_img col-sm-2">
+            <img class="img-rounded" src="imgs/ptit_logo.jpg" alt=""/>
+        </div>
+    </div>
 
-        <div class="project-info container-fluid col-sm-8">
-          <div class="panel panel-info col-sm-7">
+    <div class="project-info container-fluid col-sm-8">
+        <div class="panel panel-info col-sm-7">
             <div class="panel-heading">
-              <h4 style="font-weight:bold;">
-                THE NEW PROJECT's INFORMATIONS</h4>
+                <h4 style="font-weight:bold;">
+                    THE NEW PROJECT's INFORMATIONS</h4>
             </div>
             <div class="panel-body col-sm-6">
-              <div class="result-row">
-                <span id="label" class="col-sm-4">NAME</span>
-                <span class="col-sm-8">-------</span>
-              </div>
-              <div class="result-row">
-                <span id="label" class="col-sm-4">START DATE</span>
-                <span class="col-sm-8">-------</span>
-              </div>
-              <div class="result-row">
-                <span id="label" class="col-sm-4">END DATE</span>
-                <span class="col-sm-8">-------</span>
-              </div>
-              <div class="result-row">
-                <span id="label" class="col-sm-4">PROJECT DESCRIPTION</span>
-                <span class="col-sm-8">-------</span>
-              </div>
-
-              <div class="pro-input col-sm-6">
-
-                <input type="submit" name="" value="Complete"
-                  class="btn btn-danger" style="width:100%;"/>
-              </div>
+                <div class="result-row">
+                    <span id="label" class="col-sm-4">NAME</span>
+                    <span class="col-sm-8" th:text="${project.projectName}">-------</span>
+                </div>
+                <div class="result-row">
+                    <span id="label" class="col-sm-4">START DATE</span>
+                    <span class="col-sm-8" th:text="${project.startDate}">-------</span>
+                </div>
+                <div class="result-row">
+                    <span id="label" class="col-sm-4">END DATE</span>
+                    <span class="col-sm-8" th:text="${project.endDate}">-------</span>
+                </div>
+                <div class="pro-input col-sm-6">
+                    <input type="submit" name="" value="Complete"
+                           class="btn btn-danger" style="width:100%;"/>
+                </div>
             </div>
 
             <!-- LIST EMPLOYEES -->
             <div class="col-sm-6 list-emps">
-              <div class="list-emps-heading">
-                LIST EMPLOYEES OF PROJECT
-              </div>
-              <div class="list-emps-body">
-                <table class="table tale-border">
-                  <thead>
-                    <td>NAME</td>
-                    <td>ROLE</td>
-                    <td>LOCATION</td>
-                  </thead>
+                <div class="list-emps-heading">
+                    LIST EMPLOYEES OF PROJECT
+                </div>
+                <div class="list-emps-body">
+                    <table class="table tale-border">
+                        <thead>
+                        <td>NAME</td>
+                        <td>ROLE</td>
+                        </thead>
 
-                  <tbody>
-                    <tr>
-                      <td>--------</td>
-                      <td>--------</td>
-                      <td>--------</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                        <tbody>
+                        <th:block th:each="employee : ${employees}">
+                            <tr>
+                                <td th:text="${employee.name}"></td>
+                                <td th:text="${employee.location}"></td>
+                            </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-  </body>
+    </div>
+</div>
+</body>
 </html>
