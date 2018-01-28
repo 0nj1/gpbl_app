@@ -6,7 +6,6 @@ import com.onji.entity.Entry;
 import com.onji.entity.ProjectMember;
 import com.onji.entity.Role;
 import com.onji.enumration.EmployeeAssessment;
-import com.onji.form.ProjectMemberForm;
 import com.onji.repository.EntryRepository;
 import com.onji.repository.ProjectMemberRepository;
 import com.onji.repository.RoleRepository;
@@ -27,8 +26,8 @@ public class ProjectMemberService {
     private final EntryRepository entryRepository;
     private final UserRuntimeService userRuntimeService;
 
-    public List<Employee> searchEmployees(ProjectMemberForm projectMemberForm) {
-        Role role = roleRepository.getByName(projectMemberForm.getRole());
+    public List<Employee> searchEmployees(String roleStr) {
+        Role role = roleRepository.getByName(roleStr);
         return projectMemberRepository.findByRole(role).stream()
                 .map(ProjectMember::getUser)
                 .distinct()
@@ -61,7 +60,7 @@ public class ProjectMemberService {
                         year = extendedUser.getBirth() == null ? -1 : Period.between(extendedUser.getBirth().toLocalDate(), LocalDateTime.now().toLocalDate()).getYears();
                         location = extendedUser.getLocation() == null ? "" : extendedUser.getLocation();
                     }
-                    return new Employee(x.getUserName(), year, totalTime, location, projects);
+                    return new Employee(x.getId(), x.getUserName(), year, totalTime, location, projects);
                 })
                 .collect(Collectors.toList());
     }
